@@ -56,6 +56,42 @@ class SLL {
         }
         return str;
     }
+    max() {
+        var max = this.head.value;
+        var runner = this.head.next;
+        while (runner) {
+            if (max.length < runner.value.length) {
+                max = runner.value;
+            }
+            runner = runner.next;
+        }
+        return max;
+    }
+    min() {
+        var min = this.head.value;
+        var runner = this.head.next;
+        while (runner) {
+            if (min.length > runner.value.length) {
+                min = runner.value;
+            }
+            runner = runner.next;
+        }
+        return min;
+    }
+    average() {
+        var sum = 0;
+        var counter = 0;
+        var avg;
+        var runner = this.head.next;
+        while (runner) {
+            sum += runner.value.length;
+            counter++;
+            runner = runner.next;
+        }
+        avg = sum / counter;
+        console.log('avg', avg);
+        return avg;
+    }
 }
 
 var myNode1 = new Node("Reptar");
@@ -71,4 +107,7 @@ console.log(sll1.front());
 console.log(sll1.addFront("Dill"));
 // console.log(sll1.contains("John"));
 // console.log(sll1.length());
-console.log(sll1.display());
+// console.log(sll1.display());
+console.log(sll1.max());
+console.log(sll1.min());
+console.log(sll1.average());
